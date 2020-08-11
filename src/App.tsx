@@ -1,41 +1,34 @@
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
+import { useQuery } from "react-query";
 
-interface UserData {
+interface User {
     id: string;
     login: string;
+}
+
+interface Response {
+    data: User[];
 }
 
 import "./styles/GlobalStyles.css";
 
 const App: React.FC = () => {
-    const [data, setData] = useState<UserData[]>([]);
-
-    useEffect(() => {
-        const fecthData = async () => {
-            const response = await axios.get("https://api.github.com/users");
-
-            console.log(response);
-
-            setData(response.data);
-        };
-
-        fecthData();
-    }, []);
+    const { isLoading, error, data } = useQuery<Response, any>("usersData", () =>
+        axios.get("https://api.github.com/users"),
+    );
 
     return (
         <>
             <h1> Welcome to react </h1>
 
-            {data.map((user) => {
-                return (
-                    <div key={user.id}>
-                        {" "}
-                        <strong> {user.id}: </strong> {user.login}{" "}
-                    </div>
-                );
-            })}
+            {data?.data.map((user) => (
+                <div key={user.id}>
+                    {" "}
+                    <strong> {user.id}: </strong> {user.login}{" "}
+                </div>
+            ))}
         </>
     );
 };
