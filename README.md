@@ -34,7 +34,7 @@ Acesse: `http://localhost:4000`
 
 ## Authors
 
-Equipe Accredite
+Equipe SigoFutebol
 
 ## License
 
