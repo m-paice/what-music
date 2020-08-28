@@ -1,4 +1,4 @@
-# Project Accredite
+# Project SigoFutebol
 
 Base da aplicação (webpack, react, typescript, variáveis de ambiente).
 
@@ -10,9 +10,9 @@ Essas instruções fornecerão uma cópia do projeto em execução na sua máqui
 
 O que você precisa para instalar o software e como instalá-lo.
 
-- Nodejs
-- Yarn
-- VSCode (opcional)
+-   Nodejs
+-   Yarn
+-   VSCode (opcional)
 
 ## Installing
 
