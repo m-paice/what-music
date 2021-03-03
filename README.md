@@ -30,11 +30,11 @@ cp .env.example .env
 yarn dev
 ```
 
-Acesse: `http://localhost:4000`
+Acesse: `http://localhost:4001`
 
 ## Authors
 
-Equipe SigoFutebol
+Equipe Ikatec
 
 ## License
 
