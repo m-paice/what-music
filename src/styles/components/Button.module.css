@@ -1,0 +1,20 @@
+.button-component {
+    width: 100%;
+    height: 80px;
+
+    font-size: 20px;
+    color: var(--white);
+
+    background: var(--blue-dark);
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s;
+}
+
+.button-component:hover {
+    filter: brightness(0.9);
+}

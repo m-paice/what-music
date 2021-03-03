@@ -1,5 +1,5 @@
 const { merge } = require("webpack-merge");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+// const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 const commonConfig = require("./webpack.config");
 
@@ -9,9 +9,9 @@ module.exports = merge(commonConfig(), {
     devServer: {
         contentBase: "./dist",
         historyApiFallback: true,
-        port: 4000,
+        port: 4001,
         compress: true,
         hot: true,
     },
-    plugins: [new ReactRefreshWebpackPlugin()],
+    // plugins: [new ReactRefreshWebpackPlugin()],
 });

@@ -32,6 +32,10 @@ module.exports = () => {
                     test: /\.(png|j?g|svg|gif)?$/,
                     use: "file-loader",
                 },
+                {
+                    test: /\.(ogg|mp3|wav|mpe?g)$/i,
+                    use: "file-loader",
+                },
             ],
         },
         resolve: {
@@ -45,9 +49,6 @@ module.exports = () => {
             hints: false,
             maxEntrypointSize: 512000,
             maxAssetSize: 512000,
-        },
-        resolve: {
-            extensions: [".tsx", ".ts", ".js"],
         },
         plugins: [
             new HtmlWebpackPlugin({
