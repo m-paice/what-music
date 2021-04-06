@@ -10,10 +10,10 @@ export const Container = (Component: React.ElementType) => {
             <Component
                 payload={{
                     data: {
-                        challenges: challengesData,
+                        challenges: [],
                     },
                     actions: {
-                        getChallenges,
+                        getChallenges: () => {},
                     },
                 }}
             />

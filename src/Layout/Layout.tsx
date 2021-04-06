@@ -24,31 +24,7 @@ const Layout: React.FC<Props> = ({ children }) => {
     return (
         <ChallengeProvider>
             <CountdownProvider>
-                <div className="layout-container">
-                    <div className="layout-menu">
-                        <div>
-                            <img src={logo} alt="logo" onClick={() => history.push("/home")} />
-                        </div>
-                        <div>
-                            <button
-                                className={pathname === "/home" ? "active" : ""}
-                                onClick={() => history.push("/home")}
-                            >
-                                <img src={home} alt="home" />
-                            </button>
-                            <button
-                                className={pathname === "/leadboard" ? "active" : ""}
-                                onClick={() => history.push("/leadboard")}
-                            >
-                                <img src={award} alt="home" />
-                            </button>
-                        </div>
-                        <button className={pathname === "/login" ? "active" : ""} onClick={signOut}>
-                            <img src={logout} alt="home" />
-                        </button>
-                    </div>
-                    {children}
-                </div>
+                <div className="layout-container">{children}</div>
             </CountdownProvider>
         </ChallengeProvider>
     );

@@ -21,9 +21,8 @@ const Home: React.FC<Props> = (props) => {
 
             <section>
                 <div>
-                    <Profile username={user.name} />
+                    <Profile username={user?.name} />
                     <CompletedChallenges />
-                    <Countdown />
                 </div>
                 <div>
                     <ChallengeBox />

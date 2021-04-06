@@ -3,12 +3,9 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 import challenges from "../data/challenges.json";
 import audio from "../assets/audio/notification.mp3";
 
-import api from "../service/api";
-
 import LevelUpModal from "../components/LevelUpModal";
 
 import { User } from "./AuthContext";
-
 export interface ChallengeData {
     id: string;
     userId: string;
@@ -59,7 +56,9 @@ export const ChallengeProvider: React.FC = ({ children }) => {
         Notification.requestPermission();
 
         const fetch = async () => {
-            const { completed, current, level } = await (await api.get("/challenge/show")).data;
+            const completed = Number(localStorage.getItem("completed"));
+            const current = Number(localStorage.getItem("current"));
+            const level = Number(localStorage.getItem("level"));
 
             setCurrentExperience(current);
             setLevel(level);
@@ -70,21 +69,14 @@ export const ChallengeProvider: React.FC = ({ children }) => {
     }, []);
 
     const handleGetChallenges = async () => {
-        const response = await api.get("/challenge", {
-            params: {
-                include: ["user"],
-                order: [["total", "DESC"]],
-            },
-        });
-
-        setChallengesData(response.data);
+        setChallengesData([]);
     };
 
     const levelUp = async () => {
         setLevel(level + 1);
         setIsLevelUpModalOpen(true);
 
-        await api.post("/challenge", { level: level + 1 });
+        localStorage.setItem("level", (level + 1).toString());
     };
 
     const closeLevelUpModal = () => {
@@ -122,7 +114,9 @@ export const ChallengeProvider: React.FC = ({ children }) => {
             await levelUp();
         }
 
-        await api.post("/challenge", { completed: challengesCompleted + 1, current: finalExperience, total: amount });
+        localStorage.setItem("completed", (challengesCompleted + 1).toString());
+        localStorage.setItem("current", finalExperience.toString());
+        localStorage.setItem("total", amount.toString());
 
         setCurrentExperience(finalExperience);
         setActiveChallenge(null);
