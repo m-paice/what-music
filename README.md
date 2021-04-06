@@ -1,4 +1,4 @@
-# Project SigoFutebol
+# Project What is music
 
 Base da aplicação (webpack, react, typescript, variáveis de ambiente).
 
@@ -12,7 +12,6 @@ O que você precisa para instalar o software e como instalá-lo.
 
 -   Nodejs
 -   Yarn
--   VSCode (opcional)
 
 ## Installing
 
@@ -23,10 +22,6 @@ yarn install
 ```
 
 ```
-cp .env.example .env
-```
-
-```
 yarn dev
 ```
 
@@ -34,8 +29,4 @@ Acesse: `http://localhost:4001`
 
 ## Authors
 
-Equipe Ikatec
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+Matheus Paice <matheus.paice@gmail.com>
