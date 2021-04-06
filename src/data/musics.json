@@ -1,0 +1,68 @@
+[
+    {
+        "question": "O mundo cada vez mais perdido...",
+        "answers": [
+            { "value": "a", "label": "Minha vida é um projeto perfeito e o melhor tá preparado pra mim." },
+            { "value": "b", "label": "Eu sou de Jesus venha o que vier." },
+            { "value": "c", "label": "E eu estou cada vez mais em Deus." },
+            { "value": "d", "label": "Falem o que quiser, pensem o que quiser." }
+        ],
+        "right": "c",
+        "xp": 20
+    },
+    {
+        "question": "Quem é este Rei da Glória, o Senhor dos exércitos...",
+        "answers": [
+            { "value": "a", "label": "Tem poder para mudar o mundo." },
+            { "value": "b", "label": "Poderoso nas batalhas, ele é o Rei da Glória." },
+            { "value": "c", "label": "O teu convite diz que tem um lugar pra mim." },
+            { "value": "d", "label": "O que dizer da obra terminada." }
+        ],
+        "right": "b",
+        "xp": 35
+    },
+    {
+        "question": "Que Teu é o reino e a glória pra sempre...",
+        "answers": [
+            { "value": "a", "label": "Teu é o domínio e o poder, amém, amém." },
+            { "value": "b", "label": "Encontre meu coração disposto a queimar por Ti." },
+            { "value": "c", "label": "Não há outro como Tu, não há outro como Tu." },
+            { "value": "d", "label": "Todos os versos e canções que eu conseguir cantar." }
+        ],
+        "right": "a",
+        "xp": 25
+    },
+    {
+        "question": "Bendito é o Rei que vem, que vem em nome do Senhor...",
+        "answers": [
+            { "value": "a", "label": "Toda Terra canta ao Messias, a morte não pôde deter." },
+            { "value": "b", "label": "Seu nome é Emanuel, o Rei dos Reis." },
+            { "value": "c", "label": "O Rei que homem se tornou, os meus pecados suportou." },
+            { "value": "d", "label": "Glória seja ao Rei, glorioso Salvador." }
+        ],
+        "right": "a",
+        "xp": 28
+    },
+    {
+        "question": "Eu não preciso ser reconhecido por ninguém...",
+        "answers": [
+            { "value": "a", "label": "E como os serafins que cobrem o rosto ante a Ti." },
+            { "value": "b", "label": "No Santo dos santos, a fumaça me esconde." },
+            { "value": "c", "label": "Tua presença é o meu prazer Senhor." },
+            { "value": "d", "label": "A minha glória é fazer com que conheçam a Ti." }
+        ],
+        "right": "d",
+        "xp": 32
+    },
+    {
+        "question": "Mas tenho asas, sinto o vento e quero ir além...",
+        "answers": [
+            { "value": "a", "label": "Vou me lançar e confiar no grande Eu sou." },
+            { "value": "b", "label": "Voaremos alto, nos rendemos ao Teu vento." },
+            { "value": "c", "label": "Fui liberto pra viver o que Ele prometeu." },
+            { "value": "d", "label": "Aos Teus pés, tudo entregamos a Ti." }
+        ],
+        "right": "c",
+        "xp": 30
+    }
+]

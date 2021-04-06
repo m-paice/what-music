@@ -1,75 +1,98 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "../styles/components/ChallengeBox.module.css";
 
-import Button from '../components/Button'
-
 import music from "../assets/images/music.svg";
 
-import { useChallenge } from "../contexts/ChallengeContexts";
-import { useCountdown } from "../contexts/CountdownContexts";
+import Button from "../components/Button";
+
+import { useChallenges } from "../contexts/challenges";
 
 interface Props {}
 
 const ChallengeBox: React.FC<Props> = (props) => {
-    const { activeChallenge, resetChallenge, completeChallenge } = useChallenge();
-    const { resetCountdown } = useCountdown();
+    const { activeChallenge, validateAnswer, nextChallenge } = useChallenges();
+
+    const [answerValue, setAnswerValue] = useState("");
+    const [submitAnswer, setSubmitAnswer] = useState(false);
+    const [answerValidated, setAnswerValidated] = useState(false);
+
+    const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+
+        setAnswerValue(value);
+    };
+
+    const handleNextChallenge = () => {
+        setSubmitAnswer(false);
+        nextChallenge();
+    };
 
     const handleChallengeSecceeded = () => {
-        completeChallenge();
-        resetCountdown();
+        const response = validateAnswer(answerValue);
+
+        setAnswerValidated(response);
+
+        setSubmitAnswer(true);
+        setAnswerValue("");
     };
 
-    const handleChanllengeFailed = () => {
-        resetChallenge();
-        resetCountdown();
+    const handleChanllengeCalledOff = () => {
+        nextChallenge();
+        setAnswerValue("");
     };
+
+    if (!activeChallenge) return <p> carregando... </p>;
 
     return (
         <div className="challenge-box-container">
-            <div className="challenge-box-answer-validate">
-                {/* <img src="https://media.giphy.com/media/XbxZ41fWLeRECPsGIJ/giphy.gif" alt="answer-ok"/> */}
-                {/* <img src="https://media.giphy.com/media/ftqLysT45BJMagKFuk/giphy.gif" alt="answer-not-ok"/> */}
+            {submitAnswer ? (
+                <div className="challenge-box-answer-validate">
+                    {answerValidated ? (
+                        <img src="https://media.giphy.com/media/XbxZ41fWLeRECPsGIJ/giphy.gif" alt="answer-ok" />
+                    ) : (
+                        <img src="https://media.giphy.com/media/ftqLysT45BJMagKFuk/giphy.gif" alt="answer-not-ok" />
+                    )}
 
-                <Button>
-                    Próximo desafio
-                </Button>
-            </div>
-            {/* <div className="challenge-active">
-                <header> Ganhe 20 xp </header>
-                <main>
-                    <img src={music} alt="body" />
-                    <strong>Complete a música</strong>
-                    <p> O mundo cada vez mais perdido... </p>
+                    <Button type="button" onClick={handleNextChallenge}>
+                        Próximo desafio
+                    </Button>
+                </div>
+            ) : (
+                <div className="challenge-active">
+                    <header> Ganhe {activeChallenge.xp} xp </header>
+                    <main>
+                        <img src={music} alt="body" />
+                        <strong>Complete a música</strong>
+                        <p> {activeChallenge.question} </p>
 
-                    <section>
-                        <label htmlFor="radio1">
-                            <input type="radio" name="answer" id="radio1" />&nbsp;e eu vou caminhando nesse sentido
-                        </label>
+                        <section>
+                            {activeChallenge.answers.map((item, index) => (
+                                <label key={index} htmlFor={`radio${index + 1}`}>
+                                    <input
+                                        type="radio"
+                                        name="answer"
+                                        id={`radio${index + 1}`}
+                                        onChange={handleChangeInput}
+                                        value={item.value}
+                                        checked={item.value === answerValue}
+                                    />
+                                    &nbsp;{item.label}
+                                </label>
+                            ))}
+                        </section>
+                    </main>
 
-                        <label htmlFor="radio2">
-                            <input type="radio" name="answer" id="radio2" />&nbsp;e eu cada vez mais perdidão
-                        </label>
-
-                        <label htmlFor="radio3">
-                            <input type="radio" name="answer" id="radio3" />&nbsp;e eu estou cada vez mais em Deus
-                        </label>
-
-                        <label htmlFor="radio4">
-                            <input type="radio" name="answer" id="radio4" />&nbsp;e eu estou cada vez mais rápido
-                        </label>
-                    </section>
-                </main>
-
-                <footer>
-                    <button type="button" onClick={handleChanllengeFailed} className="challenge-failed-button">
-                        Pular
-                    </button>
-                    <button type="button" onClick={handleChallengeSecceeded} className="challenge-succeeded-button">
-                        Responder
-                    </button>
-                </footer>
-            </div> */}
+                    <footer>
+                        <button type="button" onClick={handleChanllengeCalledOff} className="challenge-failed-button">
+                            Pular
+                        </button>
+                        <button type="button" onClick={handleChallengeSecceeded} className="challenge-succeeded-button">
+                            Responder
+                        </button>
+                    </footer>
+                </div>
+            )}
         </div>
     );
 };

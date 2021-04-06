@@ -2,12 +2,12 @@ import React from "react";
 
 import "../styles/components/ExperienceBar.module.css";
 
-import { useChallenge } from "../contexts/ChallengeContexts";
+import { useChallenges } from "../contexts/challenges";
 
 interface Props {}
 
 const ExperienceBar: React.FC<Props> = (props) => {
-    const { currentExperience, experienceToNextLevel } = useChallenge();
+    const { currentExperience, experienceToNextLevel } = useChallenges();
 
     const percentToNextLevel = Math.round(currentExperience * 100) / experienceToNextLevel;
 

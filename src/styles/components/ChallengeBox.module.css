@@ -67,11 +67,14 @@
     flex-direction: column;
     align-items: flex-start;
 
+    width: 100%;
+
     margin: 5px 0 20px;
 }
 
 .challenge-active main section label {
     line-height: 2;
+    text-align: left;
 
 }
 
@@ -90,6 +93,8 @@
 .challenge-active main p {
     line-height: 1.5;
     margin: 15px 0 15px;
+
+    font-weight: bold;
 }
 
 .challenge-active footer {

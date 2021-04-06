@@ -1,11 +1,10 @@
 import React from "react";
 
+import { useChallenges } from "../contexts/challenges";
+
 import "../styles/components/Profile.module.css";
 
-import { useChallenge } from "../contexts/ChallengeContexts";
-
 import levelIcon from "../assets/images/level.svg";
-
 import superman from "../assets/images/superman.png";
 import supergirl from "../assets/images/supergirl.png";
 import batman from "../assets/images/batman.png";
@@ -28,7 +27,7 @@ const avatars = {
 const Profile: React.FC<Props> = (props) => {
     const { username } = props;
 
-    const { level } = useChallenge();
+    const { level } = useChallenges();
 
     return (
         <div className="profile-container">
@@ -38,7 +37,7 @@ const Profile: React.FC<Props> = (props) => {
                 <strong>{username}</strong>
                 <p>
                     <img src={levelIcon} alt="level" />
-                    Level {props?.userLevel || level}
+                    Level {level}
                 </p>
             </div>
         </div>

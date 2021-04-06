@@ -4,12 +4,12 @@ import "../styles/components/LevelUpModal.module.css";
 
 import close from "../assets/images/close.svg";
 
-import { useChallenge } from "../contexts/ChallengeContexts";
+import { useChallenges } from "../contexts/challenges";
 
 interface Props {}
 
 const LevelUpModal: React.FC<Props> = (props) => {
-    const { level, closeLevelUpModal } = useChallenge();
+    const { level, closeLevelUpModal } = useChallenges();
 
     return (
         <div className="level-up-modal-overlay">

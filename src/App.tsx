@@ -6,18 +6,15 @@ import "./styles/GlobalStyles.css";
 import Routes from "./routes";
 
 // contexts
-import { AuthProvider } from "./contexts/AuthContext";
-import { UserProvider } from "./contexts/UserContext";
+import { ChallengesProvider } from "./contexts/challenges";
 
 interface Props {}
 
 const App: React.FC<Props> = (props) => {
     return (
-        <AuthProvider>
-            <UserProvider>
-                <Routes />
-            </UserProvider>
-        </AuthProvider>
+        <ChallengesProvider>
+            <Routes />;
+        </ChallengesProvider>
     );
 };
 
