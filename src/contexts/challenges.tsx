@@ -6,7 +6,7 @@ import LevelUpModal from "../components/LevelUpModal";
 
 interface Answer {
     value: string;
-    label: string;
+    label: any;
 }
 
 interface Challenge {

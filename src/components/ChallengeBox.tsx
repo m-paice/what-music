@@ -5,6 +5,7 @@ import "../styles/components/ChallengeBox.module.css";
 import music from "../assets/images/music.svg";
 
 import Button from "../components/Button";
+import Radio from "../components/Radio";
 
 import { useChallenges } from "../contexts/challenges";
 
@@ -68,17 +69,18 @@ const ChallengeBox: React.FC<Props> = (props) => {
 
                         <section>
                             {activeChallenge.answers.map((item, index) => (
-                                <label key={index} htmlFor={`radio${index + 1}`}>
-                                    <input
-                                        type="radio"
-                                        name="answer"
-                                        id={`radio${index + 1}`}
-                                        onChange={handleChangeInput}
-                                        value={item.value}
-                                        checked={item.value === answerValue}
-                                    />
-                                    &nbsp;{item.label}
-                                </label>
+                                <Radio
+                                    key={index}
+                                    htmlFor={`radio${index + 1}`}
+                                    type="radio"
+                                    name="answer"
+                                    id={`radio${index + 1}`}
+                                    onChange={handleChangeInput}
+                                    value={item.value}
+                                    checked={item.value === answerValue}
+                                >
+                                    {item.label}
+                                </Radio>
                             ))}
                         </section>
                     </main>

@@ -13,7 +13,7 @@ interface Props {}
 const App: React.FC<Props> = (props) => {
     return (
         <ChallengesProvider>
-            <Routes />;
+            <Routes />
         </ChallengesProvider>
     );
 };
